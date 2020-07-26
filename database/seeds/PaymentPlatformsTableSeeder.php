@@ -11,6 +11,14 @@ class PaymentPlatformsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\PaymentPlatform::create([
+            'name' => 'PayPal',
+            'image' => 'img/payment-platforms/paypal.jpg',
+        ]);
+
+        \App\PaymentPlatform::create([
+            'name' => 'Stripe',
+            'image' => 'img/payment-platforms/stripe.jpg',
+        ]);
     }
 }

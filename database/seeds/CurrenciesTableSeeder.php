@@ -11,6 +11,16 @@ class CurrenciesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $currencies = [
+            'usd',
+            'eur',
+            'gbp'
+        ];
+
+        foreach ($currencies as $currency) {
+            \App\Currency::create([
+                'iso' => $currency
+            ]);
+        }
     }
 }
