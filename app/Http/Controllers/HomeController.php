@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Currency;
+use App\PaymentPlatform;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $currencies = Currency::all();
+        $payment_platforms = PaymentPlatform::all();
+
+        return view('home', compact('currencies', 'payment_platforms'));
     }
 }
