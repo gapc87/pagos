@@ -18,8 +18,8 @@ Route::get('/', function () {
 });
 
 Route::post('/payments/pay', 'PaymentController@pay')->name('pay');
-Route::post('/payments/approval', 'PaymentController@approval')->name('approval');
-Route::post('/payments/cancelled', 'PaymentController@cancelled')->name('cancelled');
+Route::get('/payments/approval', 'PaymentController@approval')->name('approval');
+Route::get('/payments/cancelled', 'PaymentController@cancelled')->name('cancelled');
 
 Auth::routes();
 
