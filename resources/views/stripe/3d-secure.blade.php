@@ -20,7 +20,7 @@
         <script>
             const stripe = Stripe('{{ config('services.stripe.key') }}');
 
-            Stripe.handleCardAction("{{ $clientSecret }}")
+            stripe.handleCardAction("{{ $clientSecret }}")
                 .then(function (result) {
                     if (result.error) {
                         window.location.replace("{{ route('cancelled') }}");
