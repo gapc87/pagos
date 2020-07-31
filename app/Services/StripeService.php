@@ -61,6 +61,12 @@ class StripeService
 
             $confirmation = $this->confirmPayment($paymentIntentId);
 
+            if ($confirmation->status === 'requires_action')  {
+                $client_secret = $confirmation->client_secret;
+
+                return view('stripe.3d-secure')->with(['client_secret' => $client_secret]);
+            }
+
             if ($confirmation->status === 'succeeded')  {
                 $name = $confirmation->charges->data[0]->billing_details->name;
                 $currency = strtoupper($confirmation->currency);
